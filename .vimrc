@@ -72,6 +72,7 @@ Plugin 'tpope/vim-endwise' " Adds end to things that need it...
 " Color Scheme
 Plugin 'w0ng/vim-hybrid'
 Plugin 'lilydjwg/colorizer'
+Plugin 'benekastah/neomake'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -111,6 +112,8 @@ set splitbelow
 
 " Clear all trailling whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
+autocmd! BufWritePost * Neomake
+autocmd! BufRead * Neomake
 
 " Set .es6 files to use javascript syntax
 au BufNewFile,BufRead *.es6 set filetype=javascript
