@@ -46,36 +46,25 @@ set wildignore+=tmp/**
 set wildignore+=*.cache
 set wildignore+=*.png,*.jpg,*.gif
 
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plug 'gmarik/Vundle.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'bling/vim-airline'
+Plug 'kien/ctrlp.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-sleuth'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'matze/vim-move'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-endwise' " Adds end to things that need it...
+Plug 'w0ng/vim-hybrid'
+Plug 'lilydjwg/colorizer'
+Plug 'benekastah/neomake'
 
-" Misc
-Plugin 'sheerun/vim-polyglot'
-Plugin 'bling/vim-airline'
-Plugin 'kien/ctrlp.vim'
-
-" Multiple Word Selection using Ctrl+n
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-sleuth'
-Plugin 'cakebaker/scss-syntax.vim'
-
-" Moves lines up and down with cmd+j/k
-Plugin 'matze/vim-move'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-
-Plugin 'tpope/vim-endwise' " Adds end to things that need it...
-
-" Color Scheme
-Plugin 'w0ng/vim-hybrid'
-Plugin 'lilydjwg/colorizer'
-Plugin 'benekastah/neomake'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()            " required
 filetype plugin indent on    " required
 
 " Molokai + Color editor

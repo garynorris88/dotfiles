@@ -3,6 +3,8 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="~/.rbenv/bin:$PATH"
+
 
 source $ZSH/oh-my-zsh.sh
 
