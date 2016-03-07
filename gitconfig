@@ -1,0 +1,15 @@
+[core]
+  editor = /usr/local/bin/vim
+  excludesfile = ~/.gitignore
+[user]
+  name = Gary Norris
+  email = g.norris02@gmail.com
+[push]
+  default = simple
+[github]
+  user = garynorris88
+[merge]
+  ff = only
+[alias]
+  pr = pull-request
+  db = !sh -c 'git branch -D $1 && git push origin :$1' -
