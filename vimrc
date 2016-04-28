@@ -13,10 +13,12 @@ set number
 set title
 
 " Mapping Leaders
+let mapleader = ' '
 map <Leader>vi :e ~/.vimrc<CR>
 map <Leader>so :source ~/.vimrc<CR>
 map <Leader>i mmgg=G'm
-
+nnoremap <Leader>v :vs<CR>
+nnoremap <Leader>h :sp<CR>
 " Global copy paste
 map <Leader>y "+y
 map <Leader>p "+p
@@ -30,7 +32,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 " Set ignore options
 if exists("&wildignorecase")
    set wildignorecase
-endif
+ endif
+
 
 set wildmode=list:longest
 set wildmenu
@@ -49,30 +52,38 @@ set wildignore+=*.png,*.jpg,*.gif
 call plug#begin('~/.vim/plugged')
 
 Plug 'gmarik/Vundle.vim'
+Plug 'tomtom/tlib_vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'bling/vim-airline'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/snipmate-snippets'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-sleuth'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'matze/vim-move'
 Plug 'jiangmiao/auto-pairs'
+Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-endwise' " Adds end to things that need it...
 Plug 'w0ng/vim-hybrid'
 Plug 'lilydjwg/colorizer'
 Plug 'benekastah/neomake'
+Plug 'MarcWeber/vim-addon-mw-utils'
+
 
 call plug#end()            " required
 filetype plugin indent on    " required
-
+let g:ctrlp_working_path_mode = 'r'
 " Molokai + Color editor
 set background=dark
 colorscheme hybrid
 
 " Map jj to escape key to avoid pressing ESC
-:imap jj <Esc>
+imap jj <Esc>
 
 " Fix Matching Parenths
 hi MatchParen      ctermfg=033  ctermbg=234 cterm=bold
@@ -110,6 +121,13 @@ au BufNewFile,BufRead *.es6 set filetype=javascript
 " Airline Settings
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+let NerdTreeRespectWildIgnore = 1
 
 " Change Modifier for Moving items up and down
+nnoremap <C-l> :bnext<CR>
+nnoremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <C-h> :bprevious<CR>
+nnoremap <C-n> :enew<CR>
+nnoremap <C-x> :bp <BAR> bd #<CR>
+nnoremap <C-p> :CtrlP<CR>
 let g:move_key_modifier = 'C'
