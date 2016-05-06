@@ -22,8 +22,10 @@ alias sudo='sudo '
 alias http='python -m SimpleHTTPServer 9000'
 alias z='cd /Volumes/Z-Drive/'
 alias wds='node_modules/webpack-dev-server/bin/webpack-dev-server.js'
+alias vi='nvim'
+alias vim='nvim'
 
-export EDITOR='vim'
+export EDITOR='nvim'
 
 eval "$(rbenv init -)"
 eval "$(docker-machine env default)"
