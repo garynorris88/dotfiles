@@ -16,7 +16,7 @@ set title
 let mapleader = ' '
 map <Leader>vi :e ~/.vimrc<CR>
 map <Leader>so :source ~/.vimrc<CR>
-map <Leader>i mmgg=G'm
+nnoremap <Leader>= mpHmhgg=G'hzt'p
 nnoremap <Leader>v :vs<CR>
 nnoremap <Leader>h :sp<CR>
 " Global copy paste
@@ -52,6 +52,8 @@ set wildignore+=*.png,*.jpg,*.gif
 call plug#begin('~/.vim/plugged')
 
 Plug 'gmarik/Vundle.vim'
+Plug 'benjie/neomake-local-eslint.vim'
+Plug 'othree/yajs.vim'
 Plug 'tomtom/tlib_vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'bling/vim-airline'
@@ -122,6 +124,10 @@ au BufNewFile,BufRead *.es6 set filetype=javascript
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let NerdTreeRespectWildIgnore = 1
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_js_enabled_makers = ['eslint']
+let g:neomake_jsx_enabled_makers = ['eslint']
+let g:neomake_ruby_enabled_makers = ['rubocop']
 
 " Change Modifier for Moving items up and down
 nnoremap <C-l> :bnext<CR>
