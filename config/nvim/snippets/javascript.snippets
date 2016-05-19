@@ -1,0 +1,48 @@
+snippet comp
+	import React, { Component } from 'react'
+	import radium from 'radium'
+	import { config } from 'config'
+
+	@radium
+	export default class ${1} extends Component {
+		render() {
+			return (
+				<div></div>
+			)
+		}
+	}
+
+	const styles = {}
+
+snippet div
+	<div>
+		${0}
+	</div>
+
+snippet h1
+	<h1>${0}</h1>
+
+snippet h2
+	<h2>${0}</h2>
+
+snippet h3
+	<h3>${0}</h3>
+
+snippet span
+	<span>${0}</span>
+
+snippet ul
+	<ul>
+	<li>${0}</li>
+	<li>${0}</li>
+	<li>${0}</li>
+	</ul>
+
+snippet li
+	<li>${0}</li>
+
+snippet p
+	<p>${0}</p>
+
+snippet section
+	<section>${0}</section>

@@ -1,6 +1,5 @@
 set nocompatible
 set hidden
-filetype off
 syntax enable
 set guifont=Monaco:h16
 set tabstop=2
@@ -22,12 +21,10 @@ nnoremap <Leader>h :sp<CR>
 " Global copy paste
 map <Leader>y "+y
 map <Leader>p "+p
+nnoremap <Leader>-  vi{:'<,'>sort<CR>
 
 " Fix Backspace
 set backspace=eol,start,indent
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
 
 " Set ignore options
 if exists("&wildignorecase")
@@ -51,30 +48,30 @@ set wildignore+=*.png,*.jpg,*.gif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'gmarik/Vundle.vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'benekastah/neomake'
 Plug 'benjie/neomake-local-eslint.vim'
-Plug 'othree/yajs.vim'
-Plug 'tomtom/tlib_vim'
-Plug 'sheerun/vim-polyglot'
 Plug 'bling/vim-airline'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'scrooloose/snipmate-snippets'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-sleuth'
 Plug 'cakebaker/scss-syntax.vim'
-Plug 'matze/vim-move'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'garbas/vim-snipmate'
+Plug 'gmarik/Vundle.vim'
+Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'
+Plug 'lilydjwg/colorizer'
+Plug 'matze/vim-move'
+Plug 'othree/yajs.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-surround'
+Plug 'scrooloose/snipmate-snippets'
+Plug 'sheerun/vim-polyglot'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tomtom/tlib_vim'
+Plug 'tpope/vim-endwise' " Adds end to things that need it...
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-endwise' " Adds end to things that need it...
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-surround'
 Plug 'w0ng/vim-hybrid'
-Plug 'lilydjwg/colorizer'
-Plug 'benekastah/neomake'
-Plug 'MarcWeber/vim-addon-mw-utils'
 
 
 call plug#end()            " required
@@ -137,3 +134,12 @@ nnoremap <C-n> :enew<CR>
 nnoremap <C-x> :bp <BAR> bd #<CR>
 nnoremap <C-p> :CtrlP<CR>
 let g:move_key_modifier = 'C'
+let g:jsx_ext_required = 0
+nnoremap <Up> <NOP>
+nnoremap <Down> <NOP>
+nnoremap <Left> <NOP>
+nnoremap <Right> <NOP>
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
