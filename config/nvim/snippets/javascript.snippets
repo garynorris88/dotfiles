@@ -1,9 +1,8 @@
 snippet comp
 	import React, { Component } from 'react'
-	import radium from 'radium'
+	import { StyleSheet, css } from 'aphrodite'
 	import { config } from 'config'
 
-	@radium
 	export default class ${1} extends Component {
 		render() {
 			return (
@@ -12,7 +11,9 @@ snippet comp
 		}
 	}
 
-	const styles = {}
+	const styles = StyleSheet.create({
+
+	})
 
 snippet div
 	<div>
