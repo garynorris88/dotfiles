@@ -28,7 +28,6 @@ alias vim='nvim'
 export EDITOR='nvim'
 
 eval "$(rbenv init -)"
-eval "$(docker-machine env default)"
 
 shitpostgres() {
   launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
