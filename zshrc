@@ -34,3 +34,10 @@ shitpostgres() {
   rm /usr/local/var/postgres/postmaster.pid
   launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 }
+
+update_all() {
+  brew update && \
+    brew upgrade && \
+    brew reinstall --HEAD neovim && \
+    upgrade_oh_my_zsh
+}
