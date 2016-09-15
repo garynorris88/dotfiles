@@ -68,6 +68,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tomtom/tlib_vim'
 Plug 'tpope/vim-endwise' " Adds end to things that need it...
+Plug 'tpope/vim-fugitive' " Adds end to things that need it...
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
