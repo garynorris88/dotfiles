@@ -127,7 +127,8 @@ let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_js_enabled_makers = ['eslint']
 let g:neomake_jsx_enabled_makers = ['eslint']
 let g:neomake_ruby_enabled_makers = ['rubocop']
-
+let NERDTreeCascadeSingleChildDir = 0
+"
 " Change Modifier for Moving items up and down
 nnoremap <C-l> :bnext<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
