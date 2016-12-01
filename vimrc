@@ -2,10 +2,10 @@ set nocompatible
 set hidden
 syntax enable
 set guifont=Monaco:h16
+set expandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
-set expandtab
 set hlsearch
 set mouse=a
 set number
