@@ -28,8 +28,6 @@ alias vim='nvim'
 
 export EDITOR='nvim'
 
-eval "$(rbenv init -)"
-
 shitpostgres() {
   launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
   rm /usr/local/var/postgres/postmaster.pid
