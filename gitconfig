@@ -12,4 +12,4 @@
   ff = only
 [alias]
   pr = pull-request
-  db = !sh -c 'git branch -D $1 && git push origin :$1' -
+  db = !sh -c 'git branch -d $1 && git push origin :$1' -
