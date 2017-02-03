@@ -1,143 +1,218 @@
 set nocompatible
-set hidden
-syntax enable
-set guifont=Monaco:h16
+
+set autoindent
+set background=dark
+set backspace=indent,eol,start
+set breakindent
+set complete=.,w,t
+set cursorline
+set encoding=utf-8 nobomb
 set expandtab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set fileformats=unix
+set foldcolumn=0
+set foldenable
+set foldmethod=syntax
+set foldminlines=1
+set foldnestmax=5
+set foldlevel=5
+set guifont=Consolas:h14
+set hidden
+set history=1000
 set hlsearch
+set ignorecase
+set incsearch
+set laststatus=2
+set lazyredraw
+set list
+set listchars=trail:·,tab:>-
 set mouse=a
+set noerrorbells
+set noshowmode
+set nostartofline
 set number
+set numberwidth=4
+set ruler
+set shell=/bin/zsh
+set shiftwidth=2
+set shortmess=atI
+set showcmd
+set softtabstop=2
+set splitbelow
+set splitright
+set tabstop=2
 set title
+set ttyfast
+set wildignore+=.DS_Store
+set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.psd
+set wildignore+=*/tmp/*,*.so,*.swp*,*.zip,*/node_modules/*
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe,*\\node_modules\\*
+set wildignore+=*/stylesheets/bourbon/*,*/stylesheets/neat/*
+set wildignore+=*/wp-admin/*,*/wp-includes/*
+set wildmode=list:longest,list:full
 
-" Mapping Leaders
-let mapleader = ' '
-map <Leader>vi :e ~/.vimrc<CR>
-map <Leader>so :source ~/.vimrc<CR>
-nnoremap <Leader>= mpHmhgg=G'hzt'p
-nnoremap <Leader>v :vs<CR>
-nnoremap <Leader>h :sp<CR>
-" Global copy paste
-map <Leader>y "+y
-map <Leader>p "+p
-nnoremap <Leader>-  vi{:'<,'>sort<CR>
+filetype plugin indent on
+syntax on
 
-" Fix Backspace
-set backspace=eol,start,indent
+call plug#begin('~/.nvim/plugged')
 
-" Set ignore options
-if exists("&wildignorecase")
-   set wildignorecase
- endif
-
-
-set wildmode=list:longest
-set wildmenu
-set wildignore+=*vim/backups*
-set wildignore+=*sass-cache*
-set wildignore+=*DS_Store*
-set wildignore+=*node_modules*
-set wildignore+=vendor/rails/**
-set wildignore+=vendor/cache/**
-set wildignore+=*.gem
-set wildignore+=log/**
-set wildignore+=tmp/**
-set wildignore+=*.cache
-set wildignore+=*.png,*.jpg,*.gif
-
-call plug#begin('~/.vim/plugged')
-
-Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'benekastah/neomake'
 Plug 'benjie/neomake-local-eslint.vim'
 Plug 'bling/vim-airline'
-Plug 'cakebaker/scss-syntax.vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'christoomey/vim-tmux-runner'
 Plug 'garbas/vim-snipmate'
-Plug 'gmarik/Vundle.vim'
+Plug 'glench/vim-jinja2-syntax'
 Plug 'honza/vim-snippets'
-Plug 'jiangmiao/auto-pairs'
-Plug 'lilydjwg/colorizer'
-Plug 'matze/vim-move'
+Plug 'jgdavey/tslime.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'mxw/vim-jsx'
 Plug 'othree/es.next.syntax.vim'
 Plug 'othree/yajs.vim'
+Plug 'raimondi/delimitmate'
+Plug 'rhysd/nyaovim-markdown-preview'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/snipmate-snippets'
+Plug 'shougo/vimproc.vim', { 'do': 'make' }
 Plug 'sheerun/vim-polyglot'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'tomtom/tlib_vim'
-Plug 'tpope/vim-endwise' " Adds end to things that need it...
-Plug 'tpope/vim-fugitive' " Adds end to things that need it...
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-surround'
-Plug 'w0ng/vim-hybrid'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
+Plug 'thoughtbot/vim-rspec'
 
+call plug#end()
 
-call plug#end()            " required
-filetype plugin indent on    " required
+hi Normal          ctermfg=252 ctermbg=233
+hi CursorLine                  ctermbg=233   cterm=none
+hi CursorLineNr    ctermfg=208 ctermbg=234               cterm=none
+hi Boolean         ctermfg=135
+hi Character       ctermfg=144
+hi Number          ctermfg=135
+hi String          ctermfg=229
+hi Conditional     ctermfg=161               cterm=bold
+hi Constant        ctermfg=135               cterm=bold
+hi Cursor          ctermfg=16  ctermbg=253
+hi Debug           ctermfg=225               cterm=bold
+hi Define          ctermfg=81
+hi Delimiter       ctermfg=241
+
+hi DiffAdd                     ctermbg=24
+hi DiffChange      ctermfg=181 ctermbg=239
+hi DiffDelete      ctermfg=162 ctermbg=53
+hi DiffText                    ctermbg=102   cterm=bold
+
+hi Directory       ctermfg=118               cterm=bold
+hi Error           ctermfg=219 ctermbg=89
+hi ErrorMsg        ctermfg=199 ctermbg=16    cterm=bold
+hi Exception       ctermfg=118               cterm=bold
+hi Float           ctermfg=135
+hi FoldColumn      ctermfg=67  ctermbg=16
+hi Folded          ctermfg=67  ctermbg=16
+hi Function        ctermfg=118
+hi Identifier      ctermfg=208               cterm=none
+hi Ignore          ctermfg=244 ctermbg=233
+hi IncSearch       ctermfg=193 ctermbg=16
+
+hi keyword         ctermfg=161               cterm=bold
+hi Label           ctermfg=229               cterm=none
+hi Macro           ctermfg=193
+hi SpecialKey      ctermfg=81
+
+hi MatchParen      ctermfg=047  ctermbg=233  cterm=bold
+hi ModeMsg         ctermfg=229
+hi MoreMsg         ctermfg=229
+hi Operator        ctermfg=161
+
+" complete menu
+hi Pmenu           ctermfg=81  ctermbg=16
+hi PmenuSel        ctermfg=255 ctermbg=242
+hi PmenuSbar                   ctermbg=233
+hi PmenuThumb      ctermfg=81
+
+hi PreCondit       ctermfg=118               cterm=bold
+hi PreProc         ctermfg=118
+hi Question        ctermfg=81
+hi Repeat          ctermfg=161               cterm=bold
+hi Search          ctermfg=0   ctermbg=222   cterm=NONE
+
+" marks column
+hi SignColumn      ctermfg=118 ctermbg=235
+hi SpecialChar     ctermfg=161               cterm=bold
+hi SpecialComment  ctermfg=245               cterm=bold
+hi Special         ctermfg=81
+if has("spell")
+hi SpellBad                    ctermbg=52
+hi SpellCap                    ctermbg=17
+hi SpellLocal                  ctermbg=17
+hi SpellRare  ctermfg=none     ctermbg=none  cterm=reverse
+endif
+hi Statement       ctermfg=161               cterm=bold
+hi StatusLine      ctermfg=238 ctermbg=253
+hi StatusLineNC    ctermfg=244 ctermbg=233
+hi StorageClass    ctermfg=208
+hi Structure       ctermfg=81
+hi Tag             ctermfg=161
+hi Title           ctermfg=166
+hi Todo            ctermfg=231 ctermbg=233   cterm=bold
+
+hi Typedef         ctermfg=81
+hi Type            ctermfg=81                cterm=none
+hi Underlined      ctermfg=244               cterm=underline
+
+hi VertSplit       ctermfg=244 ctermbg=233   cterm=bold
+hi VisualNOS                   ctermbg=238
+hi Visual                      ctermbg=235
+hi WarningMsg      ctermfg=231 ctermbg=238   cterm=bold
+hi WildMenu        ctermfg=81  ctermbg=16
+
+hi Comment         ctermfg=59
+hi CursorColumn                ctermbg=234
+hi ColorColumn                 ctermbg=234
+hi LineNr          ctermfg=250 ctermbg=234
+hi NonText         ctermfg=59
+
+hi SpecialKey      ctermfg=59
+
+let delimitMate_expand_cr = 1
+let delitmitMate_expand_space = 1
 let g:ctrlp_working_path_mode = 'r'
-" Molokai + Color editor
-set background=dark
-colorscheme hybrid
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:typescript_indent_disable = 1
+let g:jsx_ext_required = 0
+let NERDTreeRespectWildIgnore = 1
+let NERDTreeCascadeSingleChildDir = 0
+let g:rspec_command = ':call Send_to_Tmux("RAILS_ENV=test rspec --color {spec}\n")'
+let g:VtrOrientation = 'h'
+let g:VtrPercentage = 30
+let g:markdown_preview_eager = 1
 
-" Map jj to escape key to avoid pressing ESC
-imap jj <Esc>
-
-" Fix Matching Parenths
-hi MatchParen      ctermfg=033  ctermbg=234 cterm=bold
-
-" Marks things passing 160 characters
-" highlight ColorColumn ctermbg=magenta
-" call matchadd('ColorColumn', '\%81v', 100)
-
-" Set Cursor Line Number Colors
-hi clear CursorLine
-hi CursorLineNR ctermfg=026 cterm=bold
-hi LineNr ctermbg=235
-augroup CLSet
-  autocmd! ColorScheme * hi clear CursorLine
-  autocmd! ColorScheme * hi CursorLineNR cterm=bold
-augroup END
-highlight LineNr ctermbg=black
-set cursorline
-
-" Required for airline to show up
-set laststatus=2
-
-" Set more natural splits
-set splitright
-set splitbelow
-
-" Clear all trailling whitespace on save
-autocmd BufWritePre * :%s/\s\+$//e
-autocmd! BufWritePost * Neomake
-autocmd! BufRead * Neomake
-
-" Set .es6 files to use javascript syntax
-au BufNewFile,BufRead *.es6 set filetype=javascript
-
-" Airline Settings
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let NerdTreeRespectWildIgnore = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#syntastic#enabled = 1
+
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_js_enabled_makers = ['eslint']
 let g:neomake_jsx_enabled_makers = ['eslint']
 let g:neomake_ruby_enabled_makers = ['rubocop']
-let NERDTreeCascadeSingleChildDir = 0
-"
-" Change Modifier for Moving items up and down
-nnoremap <C-l> :bnext<CR>
+let g:neomake_html_enabled_makers = []
+
+let mapleader = ' '
+nnoremap <Leader>q :bp <BAR> bd #<CR>
+nnoremap <Leader>v :vs<CR>
+nnoremap <Leader>h :sp<CR>
 nnoremap <Leader>n :NERDTreeToggle<CR>
-nnoremap <C-h> :bprevious<CR>
-nnoremap <C-n> :enew<CR>
-nnoremap <C-x> :bp <BAR> bd #<CR>
-nnoremap <C-p> :CtrlP<CR>
-let g:move_key_modifier = 'C'
-let g:jsx_ext_required = 0
+nnoremap <Leader>p :CtrlP<CR>
+nnoremap <Leader>= mpHmhgg=G'hzt'p
+nnoremap <Leader>-  vi{:'<,'>sort<CR>
+nnoremap <silent> <Leader>t :w<CR>:call RunCurrentSpecFile()<CR>
+nnoremap <silent> <Leader>s :w<CR>:call RunNearestSpec()<CR>
+nnoremap <silent> <Leader>l :w<CR>:call RunLastSpec()<CR>
+nnoremap <silent> <Leader>fr :VtrFocusRunner<CR>
+nnoremap <silent> <Leader>fe :VtrDetachRunner<CR>
+
 nnoremap <Up> <NOP>
 nnoremap <Down> <NOP>
 nnoremap <Left> <NOP>
@@ -146,3 +221,49 @@ inoremap <Up> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
+nnoremap <Leader>r zM
+nnoremap <Leader>e zR
+nnoremap <C-l> :bnext<CR>
+nnoremap <C-h> :bprevious<CR>
+nnoremap <C-n> :enew<CR>
+nnoremap <C-x> :bp <BAR> bd #<CR>
+nnoremap <C-p> :CtrlP<CR>
+
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
+:command E Explore
+
+highlight ColorColumn ctermbg=160 guibg=magenta
+call matchadd('ColorColumn', '\%81v', 100)
+
+au BufNewFile,BufRead Dockerfile* set filetype=dockerfile
+au BufNewFile,BufRead *.es6 set filetype=javascript
+au BufNewFile,BufRead *.twig set filetype=jinja
+
+hi clear CursorLine
+hi CursorLineNR cterm=bold
+augroup CLSet
+  autocmd! ColorScheme * hi clear CursorLine
+  autocmd! ColorScheme * hi CursorLineNR cterm=bold
+augroup END
+
+augroup NoSwap
+  autocmd!
+  autocmd SwapExists * let v:swapchoice = 'e'
+augroup END
+
+autocmd BufWritePre * :%s/\s\+$//e
+
+function! UnzoomTmux()
+  if system('tmux list-panes -F "#F"') !~# 'Z'
+  else
+    call system('tmux resize-pane -Z')
+  endif
+endfunction
+
+autocmd! BufReadPost * Neomake
+autocmd! BufWritePost * Neomake
+let g:loaded_airline_themes=1
+autocmd FileType javascript :set fmr=/**,*/ fdm=marker fdc=1<Paste>
